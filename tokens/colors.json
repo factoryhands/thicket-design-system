@@ -1,0 +1,180 @@
+{
+  "thicket": {
+    "color": {
+      "blue": {
+        "50": { "value": "#e6f3ff" },
+        "100": { "value": "#b3e0ff" },
+        "200": { "value": "#80cdff" },
+        "300": { "value": "#4dbaff" },
+        "400": { "value": "#1aa7ff" },
+        "500": { "value": "#0094e6" },
+        "600": { "value": "#0081cc" },
+        "700": { "value": "#006eb3" },
+        "800": { "value": "#005b99" },
+        "900": { "value": "#004880" },
+        "950": { "value": "#003566" }
+      },
+      "red": {
+        "50": { "value": "#ffe6e6" },
+        "100": { "value": "#ffb3b3" },
+        "200": { "value": "#ff8080" },
+        "300": { "value": "#ff4d4d" },
+        "400": { "value": "#ff1a1a" },
+        "500": { "value": "#e60000" },
+        "600": { "value": "#cc0000" },
+        "700": { "value": "#b30000" },
+        "800": { "value": "#990000" },
+        "900": { "value": "#800000" },
+        "950": { "value": "#660000" }
+      },
+      "green": {
+        "50": { "value": "#e6ffe6" },
+        "100": { "value": "#b3ffb3" },
+        "200": { "value": "#80ff80" },
+        "300": { "value": "#4dff4d" },
+        "400": { "value": "#1aff1a" },
+        "500": { "value": "#00e600" },
+        "600": { "value": "#00cc00" },
+        "700": { "value": "#00b300" },
+        "800": { "value": "#009900" },
+        "900": { "value": "#008000" },
+        "950": { "value": "#006600" }
+      },
+      "yellow": {
+        "50": { "value": "#fffbe6" },
+        "100": { "value": "#fff4b3" },
+        "200": { "value": "#ffed80" },
+        "300": { "value": "#ffe64d" },
+        "400": { "value": "#ffdf1a" },
+        "500": { "value": "#e6c700" },
+        "600": { "value": "#ccb000" },
+        "700": { "value": "#b39900" },
+        "800": { "value": "#998200" },
+        "900": { "value": "#806b00" },
+        "950": { "value": "#665400" }
+      },
+      "purple": {
+        "50": { "value": "#f3e6ff" },
+        "100": { "value": "#e0b3ff" },
+        "200": { "value": "#cd80ff" },
+        "300": { "value": "#ba4dff" },
+        "400": { "value": "#a71aff" },
+        "500": { "value": "#9400e6" },
+        "600": { "value": "#8100cc" },
+        "700": { "value": "#6e00b3" },
+        "800": { "value": "#5b0099" },
+        "900": { "value": "#480080" },
+        "950": { "value": "#350066" }
+      },
+      "orange": {
+        "50": { "value": "#fff0e6" },
+        "100": { "value": "#ffd4b3" },
+        "200": { "value": "#ffb880" },
+        "300": { "value": "#ff9c4d" },
+        "400": { "value": "#ff801a" },
+        "500": { "value": "#e66400" },
+        "600": { "value": "#cc4800" },
+        "700": { "value": "#b32c00" },
+        "800": { "value": "#991000" },
+        "900": { "value": "#800000" },
+        "950": { "value": "#660000" }
+      },
+      "gray": {
+        "50": { "value": "#f8f9fa" },
+        "100": { "value": "#e9ecef" },
+        "200": { "value": "#dee2e6" },
+        "300": { "value": "#ced4da" },
+        "400": { "value": "#adb5bd" },
+        "500": { "value": "#6c757d" },
+        "600": { "value": "#495057" },
+        "700": { "value": "#343a40" },
+        "800": { "value": "#212529" },
+        "900": { "value": "#191c20" },
+        "950": { "value": "#0f1114" }
+      },
+      "semantic": {
+        "primary": {
+          "50": { "value": "{thicket.color.blue.50}" },
+          "100": { "value": "{thicket.color.blue.100}" },
+          "200": { "value": "{thicket.color.blue.200}" },
+          "300": { "value": "{thicket.color.blue.300}" },
+          "400": { "value": "{thicket.color.blue.400}" },
+          "500": { "value": "{thicket.color.blue.500}" },
+          "600": { "value": "{thicket.color.blue.600}" },
+          "700": { "value": "{thicket.color.blue.700}" },
+          "800": { "value": "{thicket.color.blue.800}" },
+          "900": { "value": "{thicket.color.blue.900}" },
+          "950": { "value": "{thicket.color.blue.950}" }
+        },
+        "success": {
+          "50": { "value": "{thicket.color.green.50}" },
+          "100": { "value": "{thicket.color.green.100}" },
+          "200": { "value": "{thicket.color.green.200}" },
+          "300": { "value": "{thicket.color.green.300}" },
+          "400": { "value": "{thicket.color.green.400}" },
+          "500": { "value": "{thicket.color.green.500}" },
+          "600": { "value": "{thicket.color.green.600}" },
+          "700": { "value": "{thicket.color.green.700}" },
+          "800": { "value": "{thicket.color.green.800}" },
+          "900": { "value": "{thicket.color.green.900}" },
+          "950": { "value": "{thicket.color.green.950}" }
+        },
+        "danger": {
+          "50": { "value": "{thicket.color.red.50}" },
+          "100": { "value": "{thicket.color.red.100}" },
+          "200": { "value": "{thicket.color.red.200}" },
+          "300": { "value": "{thicket.color.red.300}" },
+          "400": { "value": "{thicket.color.red.400}" },
+          "500": { "value": "{thicket.color.red.500}" },
+          "600": { "value": "{thicket.color.red.600}" },
+          "700": { "value": "{thicket.color.red.700}" },
+          "800": { "value": "{thicket.color.red.800}" },
+          "900": { "value": "{thicket.color.red.900}" },
+          "950": { "value": "{thicket.color.red.950}" }
+        },
+        "warning": {
+          "50": { "value": "{thicket.color.yellow.50}" },
+          "100": { "value": "{thicket.color.yellow.100}" },
+          "200": { "value": "{thicket.color.yellow.200}" },
+          "300": { "value": "{thicket.color.yellow.300}" },
+          "400": { "value": "{thicket.color.yellow.400}" },
+          "500": { "value": "{thicket.color.yellow.500}" },
+          "600": { "value": "{thicket.color.yellow.600}" },
+          "700": { "value": "{thicket.color.yellow.700}" },
+          "800": { "value": "{thicket.color.yellow.800}" },
+          "900": { "value": "{thicket.color.yellow.900}" },
+          "950": { "value": "{thicket.color.yellow.950}" }
+        },
+        "neutral": {
+          "50": { "value": "{thicket.color.gray.50}" },
+          "100": { "value": "{thicket.color.gray.100}" },
+          "200": { "value": "{thicket.color.gray.200}" },
+          "300": { "value": "{thicket.color.gray.300}" },
+          "400": { "value": "{thicket.color.gray.400}" },
+          "500": { "value": "{thicket.color.gray.500}" },
+          "600": { "value": "{thicket.color.gray.600}" },
+          "700": { "value": "{thicket.color.gray.700}" },
+          "800": { "value": "{thicket.color.gray.800}" },
+          "900": { "value": "{thicket.color.gray.900}" },
+          "950": { "value": "{thicket.color.gray.950}" }
+        }
+      },
+      "background": {
+        "primary": { "value": "{thicket.color.gray.50}" },
+        "secondary": { "value": "{thicket.color.gray.100}" },
+        "tertiary": { "value": "{thicket.color.gray.200}" }
+      },
+      "text": {
+        "primary": { "value": "{thicket.color.gray.900}" },
+        "secondary": { "value": "{thicket.color.gray.700}" },
+        "tertiary": { "value": "{thicket.color.gray.500}" },
+        "inverse": { "value": "{thicket.color.gray.50}" }
+      },
+      "border": {
+        "default": { "value": "{thicket.color.gray.300}" },
+        "subtle": { "value": "{thicket.color.gray.200}" },
+        "strong": { "value": "{thicket.color.gray.400}" }
+      }
+    }
+  }
+}
