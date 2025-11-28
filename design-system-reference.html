@@ -1,0 +1,3129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thicket Design System Reference - Bauhaus Theme</title>
+
+    <!-- Local Fette Gotisch font -->
+    <link rel="stylesheet" href="assets/fonts/fette-gotisch.css" />
+
+    <!-- Local Benton Sans font -->
+    <link rel="stylesheet" href="assets/fonts/benton-sans.css" />
+
+    <style>
+      /* Import the generated CSS variables */
+      @import url("./build/css/thicket.css");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Courier New", "Monaco", "Menlo", "Consolas", monospace;
+        line-height: 1.6;
+        color: #2a2a2a;
+        background-color: #f5f5f5;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding: 2rem 0;
+        background: linear-gradient(135deg, #404040, #505050);
+        color: white;
+        border-radius: 2px;
+      }
+
+      .theme-info {
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 2px;
+        padding: 1rem;
+        margin: 1rem auto;
+        max-width: 600px;
+        backdrop-filter: blur(10px);
+      }
+
+      .theme-info h3 {
+        margin: 0 0 0.5rem 0;
+        color: white;
+        font-family: "Courier New", "Monaco", "Menlo", "Consolas", monospace;
+      }
+
+      .theme-info p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.9);
+        font-family: "Courier New", "Monaco", "Menlo", "Consolas", monospace;
+      }
+
+      .header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+        font-family: "Courier New", "Monaco", "Menlo", "Consolas", monospace;
+      }
+
+      .header p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        font-family: "Courier New", "Monaco", "Menlo", "Consolas", monospace;
+      }
+
+      .section {
+        margin-bottom: 3rem;
+        background: white;
+        border-radius: 2px;
+        padding: 2rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        border: 1px solid #d0d0d0;
+      }
+
+      .section h2 {
+        color: #404040;
+        margin-bottom: 1.5rem;
+        font-size: 1.8rem;
+        border-bottom: 2px solid #d0d0d0;
+        padding-bottom: 0.5rem;
+        font-family: "Courier New", "Monaco", "Menlo", "Consolas", monospace;
+      }
+
+      .section h3 {
+        color: #606060;
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+        font-family: "Courier New", "Monaco", "Menlo", "Consolas", monospace;
+      }
+
+      /* Color Palette Styles */
+      .color-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .color-family {
+        border: 1px solid #d0d0d0;
+        border-radius: 2px;
+        overflow: hidden;
+      }
+
+      .color-family h4 {
+        background: #f0f0f0;
+        padding: 0.75rem;
+        margin: 0;
+        font-size: 1.1rem;
+        text-transform: capitalize;
+        font-family: "Courier New", "Monaco", "Menlo", "Consolas", monospace;
+        color: #606060;
+      }
+
+      .color-swatches {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .color-swatch {
+        display: flex;
+        align-items: center;
+        padding: 0.75rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        border-bottom: 1px solid var(--thicket-bauhaus-color-gray-100);
+      }
+
+      .color-swatch:hover {
+        background: var(--thicket-bauhaus-color-gray-50);
+        transform: translateX(4px);
+      }
+
+      .color-swatch:last-child {
+        border-bottom: none;
+      }
+
+      .color-preview {
+        width: 40px;
+        height: 40px;
+        border-radius: 2px;
+        margin-right: 1rem;
+        border: 1px solid var(--thicket-bauhaus-color-gray-300);
+        flex-shrink: 0;
+      }
+
+      .color-info {
+        flex: 1;
+      }
+
+      .color-name {
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+      }
+
+      .color-value {
+        font-family: "Courier New", monospace;
+        font-size: 0.9rem;
+        color: var(--thicket-bauhaus-color-gray-600);
+      }
+
+      .color-token {
+        font-family: "Courier New", monospace;
+        font-size: 0.85rem;
+        color: var(--thicket-bauhaus-color-gray-500);
+        margin-top: 0.25rem;
+      }
+
+      /* Semantic Colors */
+      .semantic-colors {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .semantic-group {
+        border: 1px solid #d0d0d0;
+        border-radius: 2px;
+        overflow: hidden;
+      }
+
+      .semantic-group h4 {
+        background: #f0f0f0;
+        padding: 1rem;
+        margin: 0;
+        font-size: 1.1rem;
+        font-family: "Courier New", "Monaco", "Menlo", "Consolas", monospace;
+        color: #606060;
+      }
+
+      .semantic-examples {
+        padding: 1rem;
+      }
+
+      .semantic-example {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.75rem;
+        padding: 0.75rem;
+        border-radius: 2px;
+        border: 1px solid var(--thicket-bauhaus-color-gray-200);
+      }
+
+      .semantic-example:last-child {
+        margin-bottom: 0;
+      }
+
+      .semantic-preview {
+        width: 30px;
+        height: 30px;
+        border-radius: 2px;
+        margin-right: 1rem;
+        flex-shrink: 0;
+      }
+
+      .semantic-info {
+        flex: 1;
+      }
+
+      .semantic-name {
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+      }
+
+      .semantic-value {
+        font-family: "Courier New", monospace;
+        font-size: 0.85rem;
+        color: var(--thicket-bauhaus-color-gray-600);
+      }
+
+      .semantic-token {
+        font-family: "Courier New", monospace;
+        font-size: 0.8rem;
+        color: var(--thicket-bauhaus-color-gray-500);
+        margin-top: 0.25rem;
+      }
+
+      /* Typography Styles */
+      .typography-examples {
+        display: grid;
+        gap: 2rem;
+      }
+
+      .typography-group {
+        border: 1px solid #d0d0d0;
+        border-radius: 2px;
+        padding: 1.5rem;
+      }
+
+      .typography-group h4 {
+        background: #f0f0f0;
+        margin: -1.5rem -1.5rem 1rem -1.5rem;
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid #d0d0d0;
+        font-family: "Courier New", "Monaco", "Menlo", "Consolas", monospace;
+        color: #606060;
+      }
+
+      .font-example {
+        margin-bottom: 1.5rem;
+      }
+
+      .font-example:last-child {
+        margin-bottom: 0;
+      }
+
+      .font-label {
+        font-size: 0.9rem;
+        color: #808080;
+        margin-bottom: 0.5rem;
+        font-family: "Courier New", "Monaco", "Menlo", "Consolas", monospace;
+      }
+
+      .font-preview {
+        font-size: 1.2rem;
+        line-height: 1.5;
+      }
+
+      /* Spacing Scale */
+      .spacing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+      }
+
+      .spacing-item {
+        border: 1px solid #d0d0d0;
+        border-radius: 2px;
+        padding: 1rem;
+        text-align: center;
+      }
+
+      .spacing-visual {
+        background: #d0d0d0;
+        margin: 0.5rem 0;
+        border-radius: 2px;
+      }
+
+      .spacing-label {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        font-family: "Courier New", "Monaco", "Menlo", "Consolas", monospace;
+      }
+
+      .spacing-value {
+        font-family: "Courier New", "Monaco", "Menlo", "Consolas", monospace;
+        font-size: 0.9rem;
+        color: #808080;
+      }
+
+      /* Interactive Elements */
+      .copy-button {
+        background: #808080;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 2px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: background 0.2s ease;
+      }
+
+      .copy-button:hover {
+        background: #707070;
+      }
+
+      .copy-button.copied {
+        background: #28a745;
+      }
+
+      .toast {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: var(--thicket-bauhaus-color-green-600);
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 2px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        z-index: 1000;
+      }
+
+      .toast.show {
+        transform: translateX(0);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .container {
+          padding: 1rem;
+        }
+
+        .color-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .semantic-colors {
+          grid-template-columns: 1fr;
+        }
+
+        .spacing-grid {
+          grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Thicket Design System</h1>
+        <p>Visual Reference Guide - <strong>Bauhaus Theme</strong></p>
+        <div class="theme-info">
+          <h3>🎨 Current Theme: Bauhaus</h3>
+          <p>
+            This reference showcases the <strong>Bauhaus</strong> theme with its
+            distinctive typography and color palette.
+          </p>
+        </div>
+      </div>
+
+      <!-- Color Palettes Section -->
+      <div class="section">
+        <h2>Bauhaus Color Palettes</h2>
+        <p>
+          Complete color system for the Bauhaus theme with semantic naming and
+          accessibility considerations.
+        </p>
+
+        <div class="color-grid">
+          <!-- Blue Palette -->
+          <div class="color-family">
+            <h4>Blue</h4>
+            <div class="color-swatches">
+              <div
+                class="color-swatch"
+                data-color="#e2eff5"
+                data-token="--thicket-bauhaus-color-blue-50"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #e2eff5"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Blue 50</div>
+                  <div class="color-value">#e2eff5</div>
+                  <div class="color-token">--thicket-bauhaus-color-blue-50</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#c7e0ec"
+                data-token="--thicket-bauhaus-color-blue-100"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #c7e0ec"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Blue 100</div>
+                  <div class="color-value">#c7e0ec</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-blue-100
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#96c5d8"
+                data-token="--thicket-bauhaus-color-blue-200"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #96c5d8"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Blue 200</div>
+                  <div class="color-value">#96c5d8</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-blue-200
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#6998c2"
+                data-token="--thicket-bauhaus-color-blue-300"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #6998c2"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Blue 300</div>
+                  <div class="color-value">#6998c2</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-blue-300
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#4872ab"
+                data-token="--thicket-bauhaus-color-blue-400"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #4872ab"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Blue 400</div>
+                  <div class="color-value">#4872ab</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-blue-400
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#305895"
+                data-token="--thicket-bauhaus-color-blue-500"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #305895"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Blue 500</div>
+                  <div class="color-value">#305895</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-blue-500
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#21497f"
+                data-token="--thicket-bauhaus-color-blue-600"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #21497f"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Blue 600</div>
+                  <div class="color-value">#21497f</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-blue-600
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#174168"
+                data-token="--thicket-bauhaus-color-blue-700"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #174168"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Blue 700</div>
+                  <div class="color-value">#174168</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-blue-700
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#143d52"
+                data-token="--thicket-bauhaus-color-blue-800"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #143d52"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Blue 800</div>
+                  <div class="color-value">#143d52</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-blue-800
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#10343b"
+                data-token="--thicket-bauhaus-color-blue-900"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #10343b"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Blue 900</div>
+                  <div class="color-value">#10343b</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-blue-900
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#0b2524"
+                data-token="--thicket-bauhaus-color-blue-950"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #0b2524"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Blue 950</div>
+                  <div class="color-value">#0b2524</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-blue-950
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Red Palette -->
+          <div class="color-family">
+            <h4>Red</h4>
+            <div class="color-swatches">
+              <div
+                class="color-swatch"
+                data-color="#fad9c8"
+                data-token="--thicket-bauhaus-color-red-50"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #fad9c8"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Red 50</div>
+                  <div class="color-value">#fad9c8</div>
+                  <div class="color-token">--thicket-bauhaus-color-red-50</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#edc3b1"
+                data-token="--thicket-bauhaus-color-red-100"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #edc3b1"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Red 100</div>
+                  <div class="color-value">#edc3b1</div>
+                  <div class="color-token">--thicket-bauhaus-color-red-100</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#d39a87"
+                data-token="--thicket-bauhaus-color-red-200"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #d39a87"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Red 200</div>
+                  <div class="color-value">#d39a87</div>
+                  <div class="color-token">--thicket-bauhaus-color-red-200</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#b97764"
+                data-token="--thicket-bauhaus-color-red-300"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #b97764"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Red 300</div>
+                  <div class="color-value">#b97764</div>
+                  <div class="color-token">--thicket-bauhaus-color-red-300</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#a05a4a"
+                data-token="--thicket-bauhaus-color-red-400"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #a05a4a"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Red 400</div>
+                  <div class="color-value">#a05a4a</div>
+                  <div class="color-token">--thicket-bauhaus-color-red-400</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#874235"
+                data-token="--thicket-bauhaus-color-red-500"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #874235"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Red 500</div>
+                  <div class="color-value">#874235</div>
+                  <div class="color-token">--thicket-bauhaus-color-red-500</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#6d2f26"
+                data-token="--thicket-bauhaus-color-red-600"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #6d2f26"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Red 600</div>
+                  <div class="color-value">#6d2f26</div>
+                  <div class="color-token">--thicket-bauhaus-color-red-600</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#54201b"
+                data-token="--thicket-bauhaus-color-red-700"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #54201b"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Red 700</div>
+                  <div class="color-value">#54201b</div>
+                  <div class="color-token">--thicket-bauhaus-color-red-700</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#3a1412"
+                data-token="--thicket-bauhaus-color-red-800"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #3a1412"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Red 800</div>
+                  <div class="color-value">#3a1412</div>
+                  <div class="color-token">--thicket-bauhaus-color-red-800</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#210a0a"
+                data-token="--thicket-bauhaus-color-red-900"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #210a0a"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Red 900</div>
+                  <div class="color-value">#210a0a</div>
+                  <div class="color-token">--thicket-bauhaus-color-red-900</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#080202"
+                data-token="--thicket-bauhaus-color-red-950"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #080202"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Red 950</div>
+                  <div class="color-value">#080202</div>
+                  <div class="color-token">--thicket-bauhaus-color-red-950</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Green Palette -->
+          <div class="color-family">
+            <h4>Green</h4>
+            <div class="color-swatches">
+              <div
+                class="color-swatch"
+                data-color="#d8f1d8"
+                data-token="--thicket-bauhaus-color-green-50"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #d8f1d8"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Green 50</div>
+                  <div class="color-value">#d8f1d8</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-green-50
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#b4e4b4"
+                data-token="--thicket-bauhaus-color-green-100"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #b4e4b4"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Green 100</div>
+                  <div class="color-value">#b4e4b4</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-green-100
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#77c876"
+                data-token="--thicket-bauhaus-color-green-200"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #77c876"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Green 200</div>
+                  <div class="color-value">#77c876</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-green-200
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#4aaf4b"
+                data-token="--thicket-bauhaus-color-green-300"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #4aaf4b"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Green 300</div>
+                  <div class="color-value">#4aaf4b</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-green-300
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#2a962d"
+                data-token="--thicket-bauhaus-color-green-400"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #2a962d"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Green 400</div>
+                  <div class="color-value">#2a962d</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-green-400
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#157c17"
+                data-token="--thicket-bauhaus-color-green-500"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #157c17"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Green 500</div>
+                  <div class="color-value">#157c17</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-green-500
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#076309"
+                data-token="--thicket-bauhaus-color-green-600"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #076309"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Green 600</div>
+                  <div class="color-value">#076309</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-green-600
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#004a00"
+                data-token="--thicket-bauhaus-color-green-700"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #004a00"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Green 700</div>
+                  <div class="color-value">#004a00</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-green-700
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#013a09"
+                data-token="--thicket-bauhaus-color-green-800"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #013a09"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Green 800</div>
+                  <div class="color-value">#013a09</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-green-800
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#022a0d"
+                data-token="--thicket-bauhaus-color-green-900"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #022a0d"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Green 900</div>
+                  <div class="color-value">#022a0d</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-green-900
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#03190c"
+                data-token="--thicket-bauhaus-color-green-950"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #03190c"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Green 950</div>
+                  <div class="color-value">#03190c</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-green-950
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Yellow Palette -->
+          <div class="color-family">
+            <h4>Yellow</h4>
+            <div class="color-swatches">
+              <div
+                class="color-swatch"
+                data-color="#f5f0dc"
+                data-token="--thicket-bauhaus-color-yellow-50"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #f5f0dc"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Yellow 50</div>
+                  <div class="color-value">#f5f0dc</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-yellow-50
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#ece0ba"
+                data-token="--thicket-bauhaus-color-yellow-100"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #ece0ba"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Yellow 100</div>
+                  <div class="color-value">#ece0ba</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-yellow-100
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#d9bd7f"
+                data-token="--thicket-bauhaus-color-yellow-200"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #d9bd7f"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Yellow 200</div>
+                  <div class="color-value">#d9bd7f</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-yellow-200
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#c29d50"
+                data-token="--thicket-bauhaus-color-yellow-300"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #c29d50"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Yellow 300</div>
+                  <div class="color-value">#c29d50</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-yellow-300
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#ac7f2e"
+                data-token="--thicket-bauhaus-color-yellow-400"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #ac7f2e"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Yellow 400</div>
+                  <div class="color-value">#ac7f2e</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-yellow-400
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#8f6d19"
+                data-token="--thicket-bauhaus-color-yellow-500"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #8f6d19"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Yellow 500</div>
+                  <div class="color-value">#8f6d19</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-yellow-500
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#735b0c"
+                data-token="--thicket-bauhaus-color-yellow-600"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #735b0c"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Yellow 600</div>
+                  <div class="color-value">#735b0c</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-yellow-600
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#564805"
+                data-token="--thicket-bauhaus-color-yellow-700"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #564805"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Yellow 700</div>
+                  <div class="color-value">#564805</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-yellow-700
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#393301"
+                data-token="--thicket-bauhaus-color-yellow-800"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #393301"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Yellow 800</div>
+                  <div class="color-value">#393301</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-yellow-800
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#1d1b00"
+                data-token="--thicket-bauhaus-color-yellow-900"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #1d1b00"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Yellow 900</div>
+                  <div class="color-value">#1d1b00</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-yellow-900
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#000000"
+                data-token="--thicket-bauhaus-color-yellow-950"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #030712"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Yellow 950</div>
+                  <div class="color-value">#030712</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-yellow-950
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Purple Palette -->
+          <div class="color-family">
+            <h4>Purple</h4>
+            <div class="color-swatches">
+              <div
+                class="color-swatch"
+                data-color="#f6def1"
+                data-token="--thicket-bauhaus-color-purple-50"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #f6def1"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Purple 50</div>
+                  <div class="color-value">#f6def1</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-purple-50
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#edc2e1"
+                data-token="--thicket-bauhaus-color-purple-100"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #edc2e1"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Purple 100</div>
+                  <div class="color-value">#edc2e1</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-purple-100
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#da8eb9"
+                data-token="--thicket-bauhaus-color-purple-200"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #da8eb9"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Purple 200</div>
+                  <div class="color-value">#da8eb9</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-purple-200
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#c56292"
+                data-token="--thicket-bauhaus-color-purple-300"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #c56292"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Purple 300</div>
+                  <div class="color-value">#c56292</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-purple-300
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#af416d"
+                data-token="--thicket-bauhaus-color-purple-400"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #af416d"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Purple 400</div>
+                  <div class="color-value">#af416d</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-purple-400
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#992a4e"
+                data-token="--thicket-bauhaus-color-purple-500"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #992a4e"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Purple 500</div>
+                  <div class="color-value">#992a4e</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-purple-500
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#831a34"
+                data-token="--thicket-bauhaus-color-purple-600"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #831a34"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Purple 600</div>
+                  <div class="color-value">#831a34</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-purple-600
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#6e1020"
+                data-token="--thicket-bauhaus-color-purple-700"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #6e1020"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Purple 700</div>
+                  <div class="color-value">#6e1020</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-purple-700
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#580a11"
+                data-token="--thicket-bauhaus-color-purple-800"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #580a11"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Purple 800</div>
+                  <div class="color-value">#580a11</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-purple-800
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#420607"
+                data-token="--thicket-bauhaus-color-purple-900"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #420607"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Purple 900</div>
+                  <div class="color-value">#420607</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-purple-900
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#030002"
+                data-token="--thicket-bauhaus-color-purple-950"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #030002"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Purple 950</div>
+                  <div class="color-value">#030002</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-purple-950
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Orange Palette -->
+          <div class="color-family">
+            <h4>Orange</h4>
+            <div class="color-swatches">
+              <div
+                class="color-swatch"
+                data-color="#ffd4d2"
+                data-token="--thicket-bauhaus-color-orange-50"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #ffd4d2"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Orange 50</div>
+                  <div class="color-value">#ffd4d2</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-orange-50
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#ffb8b0"
+                data-token="--thicket-bauhaus-color-orange-100"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #ffb8b0"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Orange 100</div>
+                  <div class="color-value">#ffb8b0</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-orange-100
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#ff8c6a"
+                data-token="--thicket-bauhaus-color-orange-200"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #ff8c6a"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Orange 200</div>
+                  <div class="color-value">#ff8c6a</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-orange-200
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#ff6a33"
+                data-token="--thicket-bauhaus-color-orange-300"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #ff6a33"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Orange 300</div>
+                  <div class="color-value">#ff6a33</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-orange-300
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#fe5305"
+                data-token="--thicket-bauhaus-color-orange-400"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #fe5305"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Orange 400</div>
+                  <div class="color-value">#fe5305</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-orange-400
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#d53800"
+                data-token="--thicket-bauhaus-color-orange-500"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #d53800"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Orange 500</div>
+                  <div class="color-value">#d53800</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-orange-500
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#ab2400"
+                data-token="--thicket-bauhaus-color-orange-600"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #ab2400"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Orange 600</div>
+                  <div class="color-value">#ab2400</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-orange-600
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#821400"
+                data-token="--thicket-bauhaus-color-orange-700"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #821400"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Orange 700</div>
+                  <div class="color-value">#821400</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-orange-700
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#580b01"
+                data-token="--thicket-bauhaus-color-orange-800"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #580b01"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Orange 800</div>
+                  <div class="color-value">#580b01</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-orange-800
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#2f0502"
+                data-token="--thicket-bauhaus-color-orange-900"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #2f0502"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Orange 900</div>
+                  <div class="color-value">#2f0502</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-orange-900
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#050101"
+                data-token="--thicket-bauhaus-color-orange-950"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #050101"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Orange 950</div>
+                  <div class="color-value">#050101</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-orange-950
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Gray Palette -->
+          <div class="color-family">
+            <h4>Gray</h4>
+            <div class="color-swatches">
+              <div
+                class="color-swatch"
+                data-color="#f9fafb"
+                data-token="--thicket-bauhaus-color-gray-50"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #f9fafb; border: 1px solid #ccc"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Gray 50</div>
+                  <div class="color-value">#f9fafb</div>
+                  <div class="color-token">--thicket-bauhaus-color-gray-50</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#f3f4f6"
+                data-token="--thicket-bauhaus-color-gray-100"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #f3f4f6"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Gray 100</div>
+                  <div class="color-value">#f3f4f6</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-gray-100
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#e5e7eb"
+                data-token="--thicket-bauhaus-color-gray-200"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #e5e7eb"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Gray 200</div>
+                  <div class="color-value">#e5e7eb</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-gray-200
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#d1d5db"
+                data-token="--thicket-bauhaus-color-gray-300"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #d1d5db"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Gray 300</div>
+                  <div class="color-value">#d1d5db</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-gray-300
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#9ca3af"
+                data-token="--thicket-bauhaus-color-gray-400"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #9ca3af"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Gray 400</div>
+                  <div class="color-value">#9ca3af</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-gray-400
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#6b7280"
+                data-token="--thicket-bauhaus-color-gray-500"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #6b7280"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Gray 500</div>
+                  <div class="color-value">#6b7280</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-gray-500
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#4b5563"
+                data-token="--thicket-bauhaus-color-gray-600"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #4b5563"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Gray 600</div>
+                  <div class="color-value">#4b5563</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-gray-600
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#374151"
+                data-token="--thicket-bauhaus-color-gray-700"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #374151"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Gray 700</div>
+                  <div class="color-value">#374151</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-gray-700
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#1f2937"
+                data-token="--thicket-bauhaus-color-gray-800"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #1f2937"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Gray 800</div>
+                  <div class="color-value">#1f2937</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-gray-800
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#111827"
+                data-token="--thicket-bauhaus-color-gray-900"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #111827"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Gray 900</div>
+                  <div class="color-value">#111827</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-gray-900
+                  </div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#030712"
+                data-token="--thicket-bauhaus-color-gray-950"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #030712"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Gray 950</div>
+                  <div class="color-value">#030712</div>
+                  <div class="color-token">
+                    --thicket-bauhaus-color-gray-950
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slate Palette -->
+          <div class="color-family">
+            <h4>Slate</h4>
+            <div class="color-swatches">
+              <div
+                class="color-swatch"
+                data-color="#f8fafc"
+                data-token="--thicket-bauhaus-color-slate-50"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #f8fafc; border: 1px solid #ccc"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Slate 50</div>
+                  <div class="color-value">#f8fafc</div>
+                  <div class="color-token">--thicket-bauhaus-color-slate-50</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#f1f5f9"
+                data-token="--thicket-bauhaus-color-slate-100"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #f1f5f9"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Slate 100</div>
+                  <div class="color-value">#f1f5f9</div>
+                  <div class="color-token">--thicket-bauhaus-color-slate-100</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#e2e8f0"
+                data-token="--thicket-bauhaus-color-slate-200"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #e2e8f0"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Slate 200</div>
+                  <div class="color-value">#e2e8f0</div>
+                  <div class="color-token">--thicket-bauhaus-color-slate-200</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#cbd5e1"
+                data-token="--thicket-bauhaus-color-slate-300"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #cbd5e1"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Slate 300</div>
+                  <div class="color-value">#cbd5e1</div>
+                  <div class="color-token">--thicket-bauhaus-color-slate-300</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#94a3b8"
+                data-token="--thicket-bauhaus-color-slate-400"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #94a3b8"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Slate 400</div>
+                  <div class="color-value">#94a3b8</div>
+                  <div class="color-token">--thicket-bauhaus-color-slate-400</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#64748b"
+                data-token="--thicket-bauhaus-color-slate-500"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #64748b"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Slate 500</div>
+                  <div class="color-value">#64748b</div>
+                  <div class="color-token">--thicket-bauhaus-color-slate-500</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#475569"
+                data-token="--thicket-bauhaus-color-slate-600"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #475569"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Slate 600</div>
+                  <div class="color-value">#475569</div>
+                  <div class="color-token">--thicket-bauhaus-color-slate-600</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#334155"
+                data-token="--thicket-bauhaus-color-slate-700"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #334155"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Slate 700</div>
+                  <div class="color-value">#334155</div>
+                  <div class="color-token">--thicket-bauhaus-color-slate-700</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#1e293b"
+                data-token="--thicket-bauhaus-color-slate-800"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #1e293b"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Slate 800</div>
+                  <div class="color-value">#1e293b</div>
+                  <div class="color-token">--thicket-bauhaus-color-slate-800</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#0f172a"
+                data-token="--thicket-bauhaus-color-slate-900"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #0f172a"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Slate 900</div>
+                  <div class="color-value">#0f172a</div>
+                  <div class="color-token">--thicket-bauhaus-color-slate-900</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#020617"
+                data-token="--thicket-bauhaus-color-slate-950"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #020617"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Slate 950</div>
+                  <div class="color-value">#020617</div>
+                  <div class="color-token">--thicket-bauhaus-color-slate-950</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Zinc Palette -->
+          <div class="color-family">
+            <h4>Zinc</h4>
+            <div class="color-swatches">
+              <div
+                class="color-swatch"
+                data-color="#fafafa"
+                data-token="--thicket-bauhaus-color-zinc-50"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #fafafa; border: 1px solid #ccc"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Zinc 50</div>
+                  <div class="color-value">#fafafa</div>
+                  <div class="color-token">--thicket-bauhaus-color-zinc-50</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#f4f4f5"
+                data-token="--thicket-bauhaus-color-zinc-100"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #f4f4f5"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Zinc 100</div>
+                  <div class="color-value">#f4f4f5</div>
+                  <div class="color-token">--thicket-bauhaus-color-zinc-100</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#e4e4e7"
+                data-token="--thicket-bauhaus-color-zinc-200"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #e4e4e7"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Zinc 200</div>
+                  <div class="color-value">#e4e4e7</div>
+                  <div class="color-token">--thicket-bauhaus-color-zinc-200</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#d4d4d8"
+                data-token="--thicket-bauhaus-color-zinc-300"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #d4d4d8"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Zinc 300</div>
+                  <div class="color-value">#d4d4d8</div>
+                  <div class="color-token">--thicket-bauhaus-color-zinc-300</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#a1a1aa"
+                data-token="--thicket-bauhaus-color-zinc-400"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #a1a1aa"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Zinc 400</div>
+                  <div class="color-value">#a1a1aa</div>
+                  <div class="color-token">--thicket-bauhaus-color-zinc-400</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#71717a"
+                data-token="--thicket-bauhaus-color-zinc-500"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #71717a"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Zinc 500</div>
+                  <div class="color-value">#71717a</div>
+                  <div class="color-token">--thicket-bauhaus-color-zinc-500</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#52525b"
+                data-token="--thicket-bauhaus-color-zinc-600"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #52525b"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Zinc 600</div>
+                  <div class="color-value">#52525b</div>
+                  <div class="color-token">--thicket-bauhaus-color-zinc-600</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#3f3f46"
+                data-token="--thicket-bauhaus-color-zinc-700"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #3f3f46"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Zinc 700</div>
+                  <div class="color-value">#3f3f46</div>
+                  <div class="color-token">--thicket-bauhaus-color-zinc-700</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#27272a"
+                data-token="--thicket-bauhaus-color-zinc-800"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #27272a"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Zinc 800</div>
+                  <div class="color-value">#27272a</div>
+                  <div class="color-token">--thicket-bauhaus-color-zinc-800</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#18181b"
+                data-token="--thicket-bauhaus-color-zinc-900"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #18181b"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Zinc 900</div>
+                  <div class="color-value">#18181b</div>
+                  <div class="color-token">--thicket-bauhaus-color-zinc-900</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#09090b"
+                data-token="--thicket-bauhaus-color-zinc-950"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #09090b"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Zinc 950</div>
+                  <div class="color-value">#09090b</div>
+                  <div class="color-token">--thicket-bauhaus-color-zinc-950</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Neutral Palette -->
+          <div class="color-family">
+            <h4>Neutral</h4>
+            <div class="color-swatches">
+              <div
+                class="color-swatch"
+                data-color="#fafafa"
+                data-token="--thicket-bauhaus-color-neutral-50"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #fafafa; border: 1px solid #ccc"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Neutral 50</div>
+                  <div class="color-value">#fafafa</div>
+                  <div class="color-token">--thicket-bauhaus-color-neutral-50</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#f5f5f5"
+                data-token="--thicket-bauhaus-color-neutral-100"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #f5f5f5"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Neutral 100</div>
+                  <div class="color-value">#f5f5f5</div>
+                  <div class="color-token">--thicket-bauhaus-color-neutral-100</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#e5e5e5"
+                data-token="--thicket-bauhaus-color-neutral-200"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #e5e5e5"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Neutral 200</div>
+                  <div class="color-value">#e5e5e5</div>
+                  <div class="color-token">--thicket-bauhaus-color-neutral-200</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#d4d4d4"
+                data-token="--thicket-bauhaus-color-neutral-300"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #d4d4d4"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Neutral 300</div>
+                  <div class="color-value">#d4d4d4</div>
+                  <div class="color-token">--thicket-bauhaus-color-neutral-300</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#a3a3a3"
+                data-token="--thicket-bauhaus-color-neutral-400"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #a3a3a3"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Neutral 400</div>
+                  <div class="color-value">#a3a3a3</div>
+                  <div class="color-token">--thicket-bauhaus-color-neutral-400</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#737373"
+                data-token="--thicket-bauhaus-color-neutral-500"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #737373"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Neutral 500</div>
+                  <div class="color-value">#737373</div>
+                  <div class="color-token">--thicket-bauhaus-color-neutral-500</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#525252"
+                data-token="--thicket-bauhaus-color-neutral-600"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #525252"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Neutral 600</div>
+                  <div class="color-value">#525252</div>
+                  <div class="color-token">--thicket-bauhaus-color-neutral-600</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#404040"
+                data-token="--thicket-bauhaus-color-neutral-700"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #404040"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Neutral 700</div>
+                  <div class="color-value">#404040</div>
+                  <div class="color-token">--thicket-bauhaus-color-neutral-700</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#262626"
+                data-token="--thicket-bauhaus-color-neutral-800"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #262626"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Neutral 800</div>
+                  <div class="color-value">#262626</div>
+                  <div class="color-token">--thicket-bauhaus-color-neutral-800</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#171717"
+                data-token="--thicket-bauhaus-color-neutral-900"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #171717"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Neutral 900</div>
+                  <div class="color-value">#171717</div>
+                  <div class="color-token">--thicket-bauhaus-color-neutral-900</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#0a0a0a"
+                data-token="--thicket-bauhaus-color-neutral-950"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #0a0a0a"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Neutral 950</div>
+                  <div class="color-value">#0a0a0a</div>
+                  <div class="color-token">--thicket-bauhaus-color-neutral-950</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stone Palette -->
+          <div class="color-family">
+            <h4>Stone</h4>
+            <div class="color-swatches">
+              <div
+                class="color-swatch"
+                data-color="#fafaf9"
+                data-token="--thicket-bauhaus-color-stone-50"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #fafaf9"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Stone 50</div>
+                  <div class="color-value">#fafaf9</div>
+                  <div class="color-token">--thicket-bauhaus-color-stone-50</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#f5f5f4"
+                data-token="--thicket-bauhaus-color-stone-100"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #f5f5f4"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Stone 100</div>
+                  <div class="color-value">#f5f5f4</div>
+                  <div class="color-token">--thicket-bauhaus-color-stone-100</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#e7e5e4"
+                data-token="--thicket-bauhaus-color-stone-200"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #e7e5e4"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Stone 200</div>
+                  <div class="color-value">#e7e5e4</div>
+                  <div class="color-token">--thicket-bauhaus-color-stone-200</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#d6d3d1"
+                data-token="--thicket-bauhaus-color-stone-300"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #d6d3d1"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Stone 300</div>
+                  <div class="color-value">#d6d3d1</div>
+                  <div class="color-token">--thicket-bauhaus-color-stone-300</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#a8a29e"
+                data-token="--thicket-bauhaus-color-stone-400"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #a8a29e"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Stone 400</div>
+                  <div class="color-value">#a8a29e</div>
+                  <div class="color-token">--thicket-bauhaus-color-stone-400</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#78716c"
+                data-token="--thicket-bauhaus-color-stone-500"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #78716c"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Stone 500</div>
+                  <div class="color-value">#78716c</div>
+                  <div class="color-token">--thicket-bauhaus-color-stone-500</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#57534e"
+                data-token="--thicket-bauhaus-color-stone-600"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #57534e"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Stone 600</div>
+                  <div class="color-value">#57534e</div>
+                  <div class="color-token">--thicket-bauhaus-color-stone-600</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#44403c"
+                data-token="--thicket-bauhaus-color-stone-700"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #44403c"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Stone 700</div>
+                  <div class="color-value">#44403c</div>
+                  <div class="color-token">--thicket-bauhaus-color-stone-700</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#292524"
+                data-token="--thicket-bauhaus-color-stone-800"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #292524"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Stone 800</div>
+                  <div class="color-value">#292524</div>
+                  <div class="color-token">--thicket-bauhaus-color-stone-800</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#1c1917"
+                data-token="--thicket-bauhaus-color-stone-900"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #1c1917"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Stone 900</div>
+                  <div class="color-value">#1c1917</div>
+                  <div class="color-token">--thicket-bauhaus-color-stone-900</div>
+                </div>
+              </div>
+              <div
+                class="color-swatch"
+                data-color="#0c0a09"
+                data-token="--thicket-bauhaus-color-stone-950"
+              >
+                <div
+                  class="color-preview"
+                  style="background-color: #0c0a09"
+                ></div>
+                <div class="color-info">
+                  <div class="color-name">Stone 950</div>
+                  <div class="color-value">#0c0a09</div>
+                  <div class="color-token">--thicket-bauhaus-color-stone-950</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+</div>
+        </div>
+      </div>
+
+      <!-- Semantic Colors Section -->
+      <div class="section">
+        <h2>Semantic Colors</h2>
+        <p>
+          Predefined color combinations for consistent UI patterns and
+          accessibility.
+        </p>
+
+        <div class="semantic-colors">
+          <div class="semantic-group">
+            <h4>Background Colors</h4>
+            <div class="semantic-examples">
+              <div
+                class="semantic-example"
+                data-token="--thicket-bauhaus-color-semantic-background-brand"
+              >
+                <div
+                  class="semantic-preview"
+                  style="background-color: #10343b"
+                ></div>
+                <div class="semantic-info">
+                  <div class="semantic-name">Brand</div>
+                  <div class="semantic-value">#10343b</div>
+                  <div class="semantic-token">
+                    --thicket-bauhaus-color-semantic-background-brand
+                  </div>
+                </div>
+              </div>
+              <div
+                class="semantic-example"
+                data-token="--thicket-bauhaus-color-semantic-background-brand-quiet"
+              >
+                <div
+                  class="semantic-preview"
+                  style="background-color: #e2eff5"
+                ></div>
+                <div class="semantic-info">
+                  <div class="semantic-name">Brand Quiet</div>
+                  <div class="semantic-value">#e2eff5</div>
+                  <div class="semantic-token">
+                    --thicket-bauhaus-color-semantic-background-brand-quiet
+                  </div>
+                </div>
+              </div>
+              <div
+                class="semantic-example"
+                data-token="--thicket-bauhaus-color-semantic-background-accent"
+              >
+                <div
+                  class="semantic-preview"
+                  style="background-color: #ff8c6a"
+                ></div>
+                <div class="semantic-info">
+                  <div class="semantic-name">Accent</div>
+                  <div class="semantic-value">#ff8c6a</div>
+                  <div class="semantic-token">
+                    --thicket-bauhaus-color-semantic-background-accent
+                  </div>
+                </div>
+              </div>
+              <div
+                class="semantic-example"
+                data-token="--thicket-bauhaus-color-semantic-background-accent-quiet"
+              >
+                <div
+                  class="semantic-preview"
+                  style="background-color: #ffd4d2"
+                ></div>
+                <div class="semantic-info">
+                  <div class="semantic-name">Accent Quiet</div>
+                  <div class="semantic-value">#ffd4d2</div>
+                  <div class="semantic-token">
+                    --thicket-bauhaus-color-semantic-background-accent-quiet
+                  </div>
+                </div>
+              </div>
+              <div
+                class="semantic-example"
+                data-token="--thicket-bauhaus-color-semantic-background-positive"
+              >
+                <div
+                  class="semantic-preview"
+                  style="background-color: #004a00"
+                ></div>
+                <div class="semantic-info">
+                  <div class="semantic-name">Positive</div>
+                  <div class="semantic-value">#004a00</div>
+                  <div class="semantic-token">
+                    --thicket-bauhaus-color-semantic-background-positive
+                  </div>
+                </div>
+              </div>
+              <div
+                class="semantic-example"
+                data-token="--thicket-bauhaus-color-semantic-background-positive-quiet"
+              >
+                <div
+                  class="semantic-preview"
+                  style="background-color: #d8f1d8"
+                ></div>
+                <div class="semantic-info">
+                  <div class="semantic-name">Positive Quiet</div>
+                  <div class="semantic-value">#d8f1d8</div>
+                  <div class="semantic-token">
+                    --thicket-bauhaus-color-semantic-background-positive-quiet
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="semantic-group">
+            <h4>Foreground Colors</h4>
+            <div class="semantic-examples">
+              <div
+                class="semantic-example"
+                data-token="--thicket-bauhaus-color-semantic-foreground-on-brand"
+              >
+                <div
+                  class="semantic-preview"
+                  style="background-color: #f9fafb; border: 1px solid #ccc"
+                ></div>
+                <div class="semantic-info">
+                  <div class="semantic-name">On Brand</div>
+                  <div class="semantic-value">#ffffff</div>
+                  <div class="semantic-token">
+                    --thicket-bauhaus-color-semantic-foreground-on-brand
+                  </div>
+                </div>
+              </div>
+              <div
+                class="semantic-example"
+                data-token="--thicket-bauhaus-color-semantic-foreground-on-brand-quiet"
+              >
+                <div
+                  class="semantic-preview"
+                  style="background-color: #10343b"
+                ></div>
+                <div class="semantic-info">
+                  <div class="semantic-name">On Brand Quiet</div>
+                  <div class="semantic-value">#10343b</div>
+                  <div class="semantic-token">
+                    --thicket-bauhaus-color-semantic-foreground-on-brand-quiet
+                  </div>
+                </div>
+              </div>
+              <div
+                class="semantic-example"
+                data-token="--thicket-bauhaus-color-semantic-foreground-on-accent"
+              >
+                <div
+                  class="semantic-preview"
+                  style="background-color: #111827"
+                ></div>
+                <div class="semantic-info">
+                  <div class="semantic-name">On Accent</div>
+                  <div class="semantic-value">#2e2e2e</div>
+                  <div class="semantic-token">
+                    --thicket-bauhaus-color-semantic-foreground-on-accent
+                  </div>
+                </div>
+              </div>
+              <div
+                class="semantic-example"
+                data-token="--thicket-bauhaus-color-semantic-foreground-on-accent-quiet"
+              >
+                <div
+                  class="semantic-preview"
+                  style="background-color: #2f0502"
+                ></div>
+                <div class="semantic-info">
+                  <div class="semantic-name">On Accent Quiet</div>
+                  <div class="semantic-value">#2f0502</div>
+                  <div class="semantic-token">
+                    --thicket-bauhaus-color-semantic-foreground-on-accent-quiet
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Typography Section -->
+      <div class="section">
+        <h2>Bauhaus Typography</h2>
+        <p>
+          Font families, sizes, weights, and line heights for the Bauhaus
+          theme's consistent text styling.
+        </p>
+
+        <div class="typography-examples">
+          <div class="typography-group">
+            <h4>Font Families</h4>
+            <div class="font-example">
+              <div class="font-label">
+                Bauhaus Display Font: Fette Gotisch (Serif)
+              </div>
+              <div
+                class="font-preview"
+                style="
+                  font-family: 'Fette Gotisch', serif;
+                  font-size: 24px;
+                  font-weight: 400;
+                "
+              >
+                The quick brown fox jumps over the lazy dog
+              </div>
+              <div style="font-size: 12px; color: #666; margin-top: 8px">
+                Font loading test - if this looks different from serif, Fette
+                Gotisch is working!
+              </div>
+              <div
+                style="
+                  font-family: serif;
+                  font-size: 24px;
+                  margin-top: 8px;
+                  border: 1px solid #ccc;
+                  padding: 8px;
+                "
+              >
+                Fallback serif font for comparison
+              </div>
+            </div>
+            <div class="font-example">
+              <div class="font-label">
+                Bauhaus Sans-Serif Font: Benton Sans (Sans-serif)
+              </div>
+              <div
+                class="font-preview"
+                style="font-family: 'Benton Sans', sans-serif"
+              >
+                The quick brown fox jumps over the lazy dog
+              </div>
+            </div>
+          </div>
+
+          <div class="typography-group">
+            <h4>Type Scale</h4>
+            <div class="font-example">
+              <div class="font-label">Bauhaus Type Scale - Complete Range</div>
+              <div
+                class="font-preview"
+                style="
+                  font-family: 'Benton Sans', sans-serif;
+                  font-size: 14px;
+                  line-height: 1.6;
+                  background: #f8f9fa;
+                  padding: 20px;
+                  border-radius: 2px;
+                  text-align: left;
+                "
+              >
+                <div style="margin-bottom: 16px">
+                  <div
+                    style="
+                      font-family: 'Fette Gotisch', serif;
+                      font-size: 128px;
+                      font-weight: 800;
+                      line-height: 1;
+                      color: var(--thicket-bauhaus-color-blue-900);
+                    "
+                  >
+                    9xl (128px)
+                  </div>
+                  <div style="font-size: 12px; color: #666; margin-top: 8px">
+                    --thicket-bauhaus-text-sizes-9xl: 128px
+                  </div>
+                </div>
+                <div style="margin-bottom: 16px">
+                  <div
+                    style="
+                      font-family: 'Fette Gotisch', serif;
+                      font-size: 96px;
+                      font-weight: 800;
+                      line-height: 1;
+                      color: var(--thicket-bauhaus-color-blue-900);
+                    "
+                  >
+                    8xl (96px)
+                  </div>
+                  <div style="font-size: 12px; color: #666; margin-top: 8px">
+                    --thicket-bauhaus-text-sizes-8xl: 96px
+                  </div>
+                </div>
+                <div style="margin-bottom: 16px">
+                  <div
+                    style="
+                      font-family: 'Fette Gotisch', serif;
+                      font-size: 72px;
+                      font-weight: 800;
+                      line-height: 1;
+                      color: var(--thicket-bauhaus-color-blue-900);
+                    "
+                  >
+                    7xl (72px)
+                  </div>
+                  <div style="font-size: 12px; color: #666; margin-top: 8px">
+                    --thicket-bauhaus-text-sizes-7xl: 72px
+                  </div>
+                </div>
+                <div style="margin-bottom: 16px">
+                  <div
+                    style="
+                      font-family: 'Fette Gotisch', serif;
+                      font-size: 60px;
+                      font-weight: 800;
+                      line-height: 1;
+                      color: var(--thicket-bauhaus-color-blue-900);
+                    "
+                  >
+                    6xl (60px)
+                  </div>
+                  <div style="font-size: 12px; color: #666; margin-top: 8px">
+                    --thicket-bauhaus-text-sizes-6xl: 60px
+                  </div>
+                </div>
+                <div style="margin-bottom: 16px">
+                  <div
+                    style="
+                      font-family: 'Fette Gotisch', serif;
+                      font-size: 48px;
+                      font-weight: 800;
+                      line-height: 1;
+                      color: var(--thicket-bauhaus-color-blue-900);
+                    "
+                  >
+                    5xl (48px)
+                  </div>
+                  <div style="font-size: 12px; color: #666; margin-top: 8px">
+                    --thicket-bauhaus-text-sizes-5xl: 48px
+                  </div>
+                </div>
+                <div style="margin-bottom: 16px">
+                  <div
+                    style="
+                      font-family: 'Fette Gotisch', serif;
+                      font-size: 36px;
+                      font-weight: 800;
+                      line-height: 1;
+                      color: var(--thicket-bauhaus-color-blue-900);
+                    "
+                  >
+                    4xl (36px)
+                  </div>
+                  <div style="font-size: 12px; color: #666; margin-top: 8px">
+                    --thicket-bauhaus-text-sizes-4xl: 36px
+                  </div>
+                </div>
+                <div style="margin-bottom: 16px">
+                  <div
+                    style="
+                      font-family: 'Fette Gotisch', serif;
+                      font-size: 30px;
+                      font-weight: 800;
+                      line-height: 1;
+                      color: var(--thicket-bauhaus-color-blue-900);
+                    "
+                  >
+                    3xl (30px)
+                  </div>
+                  <div style="font-size: 12px; color: #666; margin-top: 8px">
+                    --thicket-bauhaus-text-sizes-3xl: 30px
+                  </div>
+                </div>
+                <div style="margin-bottom: 16px">
+                  <div
+                    style="
+                      font-family: 'Fette Gotisch', serif;
+                      font-size: 24px;
+                      font-weight: 800;
+                      line-height: 1;
+                      color: var(--thicket-bauhaus-color-blue-900);
+                    "
+                  >
+                    2xl (24px)
+                  </div>
+                  <div style="font-size: 12px; color: #666; margin-top: 8px">
+                    --thicket-bauhaus-text-sizes-2xl: 24px
+                  </div>
+                </div>
+                <div style="margin-bottom: 16px">
+                  <div
+                    style="
+                      font-family: 'Fette Gotisch', serif;
+                      font-size: 20px;
+                      font-weight: 800;
+                      line-height: 1;
+                      color: var(--thicket-bauhaus-color-blue-900);
+                    "
+                  >
+                    xl (20px)
+                  </div>
+                  <div style="font-size: 12px; color: #666; margin-top: 8px">
+                    --thicket-bauhaus-text-sizes-xl: 20px
+                  </div>
+                </div>
+                <div style="margin-bottom: 16px">
+                  <div
+                    style="
+                      font-family: 'Fette Gotisch', serif;
+                      font-size: 18px;
+                      font-weight: 800;
+                      line-height: 1;
+                      color: var(--thicket-bauhaus-color-blue-900);
+                    "
+                  >
+                    lg (18px)
+                  </div>
+                  <div style="font-size: 12px; color: #666; margin-top: 8px">
+                    --thicket-bauhaus-text-sizes-lg: 18px
+                  </div>
+                </div>
+                <div style="margin-bottom: 16px">
+                  <div
+                    style="
+                      font-family: 'Benton Sans', sans-serif;
+                      font-size: 16px;
+                      font-weight: 400;
+                      line-height: 1.2;
+                      color: var(--thicket-bauhaus-color-gray-900);
+                    "
+                  >
+                    base (16px) - Body text
+                  </div>
+                  <div style="font-size: 12px; color: #666; margin-top: 8px">
+                    --thicket-bauhaus-text-sizes-base: 16px
+                  </div>
+                </div>
+                <div style="margin-bottom: 16px">
+                  <div
+                    style="
+                      font-family: 'Benton Sans', sans-serif;
+                      font-size: 14px;
+                      font-weight: 400;
+                      line-height: 1.2;
+                      color: var(--thicket-bauhaus-color-gray-900);
+                    "
+                  >
+                    sm (14px) - Small text
+                  </div>
+                  <div style="font-size: 12px; color: #666; margin-top: 8px">
+                    --thicket-bauhaus-text-sizes-sm: 14px
+                  </div>
+                </div>
+                <div style="margin-bottom: 16px">
+                  <div
+                    style="
+                      font-family: 'Benton Sans', sans-serif;
+                      font-size: 12px;
+                      font-weight: 400;
+                      line-height: 1.2;
+                      color: var(--thicket-bauhaus-color-gray-900);
+                    "
+                  >
+                    xs (12px) - Caption text
+                  </div>
+                  <div style="font-size: 12px; color: #666; margin-top: 8px">
+                    --thicket-bauhaus-text-sizes-xs: 12px
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="typography-group">
+            <h4>Font Weights</h4>
+            <div class="font-example">
+              <div class="font-label">Bauhaus Light (300)</div>
+              <div
+                class="font-preview"
+                style="font-family: 'Benton Sans', sans-serif; font-weight: 300"
+              >
+                Light weight text for subtle emphasis
+              </div>
+            </div>
+            <div class="font-example">
+              <div class="font-label">Bauhaus Regular (400)</div>
+              <div
+                class="font-preview"
+                style="font-family: 'Benton Sans', sans-serif; font-weight: 400"
+              >
+                Regular weight text for body content
+              </div>
+            </div>
+            <div class="font-example">
+              <div class="font-label">Bauhaus Bold (800)</div>
+              <div
+                class="font-preview"
+                style="font-family: 'Fette Gotisch', serif; font-weight: 800"
+              >
+                Bold weight text for strong emphasis
+              </div>
+            </div>
+          </div>
+
+          <div class="typography-group">
+            <h4>Typography Styles</h4>
+            <div class="font-example">
+              <div class="font-label">
+                Bauhaus Heading Style: Fette Gotisch (Serif) - Bold
+              </div>
+              <div
+                class="font-preview"
+                style="
+                  font-family: 'Fette Gotisch', serif;
+                  font-weight: 800;
+                  font-size: 28px;
+                  line-height: 1.8;
+                "
+              >
+                This is a heading
+              </div>
+            </div>
+            <div class="font-example">
+              <div class="font-label">
+                Bauhaus Body Style: Benton Sans (Sans-serif) - Regular
+              </div>
+              <div
+                class="font-preview"
+                style="
+                  font-family: 'Benton Sans', sans-serif;
+                  font-weight: 400;
+                  font-size: 16px;
+                  line-height: 1.2;
+                "
+              >
+                This is body text that demonstrates the standard typography
+                style used throughout the design system.
+              </div>
+            </div>
+          </div>
+
+          <div class="typography-group">
+            <h4>Bauhaus CSS Variables</h4>
+            <div class="font-example">
+              <div class="font-label">Available Bauhaus Text Variables</div>
+              <div
+                class="font-preview"
+                style="
+                  font-family: 'Benton Sans', sans-serif;
+                  font-size: 14px;
+                  line-height: 1.6;
+                  background: #f8f9fa;
+                  padding: 16px;
+                  border-radius: 2px;
+                  text-align: left;
+                "
+              >
+                <strong>Font Families:</strong><br />
+                --thicket-bauhaus-text-fonts-display: Fette Gotisch, serif<br />
+                --thicket-bauhaus-text-fonts-sans: Benton Sans, sans-serif<br /><br />
+                <strong>Font Sizes (Type Scale):</strong><br />
+                --thicket-bauhaus-text-sizes-xs: 12px<br />
+                --thicket-bauhaus-text-sizes-sm: 14px<br />
+                --thicket-bauhaus-text-sizes-base: 16px<br />
+                --thicket-bauhaus-text-sizes-lg: 18px<br />
+                --thicket-bauhaus-text-sizes-xl: 20px<br />
+                --thicket-bauhaus-text-sizes-2xl: 24px<br />
+                --thicket-bauhaus-text-sizes-3xl: 30px<br />
+                --thicket-bauhaus-text-sizes-4xl: 36px<br />
+                --thicket-bauhaus-text-sizes-5xl: 48px<br />
+                --thicket-bauhaus-text-sizes-6xl: 60px<br />
+                --thicket-bauhaus-text-sizes-7xl: 72px<br />
+                --thicket-bauhaus-text-sizes-8xl: 96px<br />
+                --thicket-bauhaus-text-sizes-9xl: 128px<br /><br />
+                <strong>Font Weights:</strong><br />
+                --thicket-bauhaus-text-weights-light: 300<br />
+                --thicket-bauhaus-text-weights-regular: 400<br />
+                --thicket-bauhaus-text-weights-bold: 800<br /><br />
+                <strong>Line Heights:</strong><br />
+                --thicket-bauhaus-text-line-heights-normal: 1.2<br />
+                --thicket-bauhaus-text-line-heights-large: 1.8
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Spacing Scale Section -->
+      <div class="section">
+        <h2>Bauhaus Spacing Scale</h2>
+        <p>
+          Consistent spacing values for the Bauhaus theme for margins, padding,
+          and layout.
+        </p>
+
+        <div class="spacing-grid">
+          <div class="spacing-item">
+            <div class="spacing-label">0</div>
+            <div class="spacing-visual" style="height: 0px"></div>
+            <div class="spacing-value">0px</div>
+          </div>
+          <div class="spacing-item">
+            <div class="spacing-label">1</div>
+            <div class="spacing-visual" style="height: 4px"></div>
+            <div class="spacing-value">4px</div>
+          </div>
+          <div class="spacing-item">
+            <div class="spacing-label">2</div>
+            <div class="spacing-visual" style="height: 8px"></div>
+            <div class="spacing-value">8px</div>
+          </div>
+          <div class="spacing-item">
+            <div class="spacing-label">3</div>
+            <div class="spacing-visual" style="height: 12px"></div>
+            <div class="spacing-value">12px</div>
+          </div>
+          <div class="spacing-item">
+            <div class="spacing-label">4</div>
+            <div class="spacing-visual" style="height: 16px"></div>
+            <div class="spacing-value">16px</div>
+          </div>
+          <div class="spacing-item">
+            <div class="spacing-label">5</div>
+            <div class="spacing-visual" style="height: 20px"></div>
+            <div class="spacing-value">20px</div>
+          </div>
+          <div class="spacing-item">
+            <div class="spacing-label">6</div>
+            <div class="spacing-visual" style="height: 24px"></div>
+            <div class="spacing-value">24px</div>
+          </div>
+          <div class="spacing-item">
+            <div class="spacing-label">7</div>
+            <div class="spacing-visual" style="height: 28px"></div>
+            <div class="spacing-value">28px</div>
+          </div>
+          <div class="spacing-item">
+            <div class="spacing-label">8</div>
+            <div class="spacing-visual" style="height: 32px"></div>
+            <div class="spacing-value">32px</div>
+          </div>
+          <div class="spacing-item">
+            <div class="spacing-label">9</div>
+            <div class="spacing-visual" style="height: 36px"></div>
+            <div class="spacing-value">36px</div>
+          </div>
+          <div class="spacing-item">
+            <div class="spacing-label">10</div>
+            <div class="spacing-visual" style="height: 40px"></div>
+            <div class="spacing-value">40px</div>
+          </div>
+          <div class="spacing-item">
+            <div class="spacing-label">11</div>
+            <div class="spacing-visual" style="height: 44px"></div>
+            <div class="spacing-value">44px</div>
+          </div>
+          <div class="spacing-item">
+            <div class="spacing-label">12</div>
+            <div class="spacing-visual" style="height: 48px"></div>
+            <div class="spacing-value">48px</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast notification -->
+    <div class="toast" id="toast">Token name copied to clipboard!</div>
+
+    <script>
+      // Copy to clipboard functionality
+      function copyToClipboard(text) {
+        navigator.clipboard
+          .writeText(text)
+          .then(() => {
+            showToast();
+          })
+          .catch((err) => {
+            console.error("Failed to copy: ", err);
+          });
+      }
+
+      function showToast() {
+        const toast = document.getElementById("toast");
+        toast.classList.add("show");
+        setTimeout(() => {
+          toast.classList.remove("show");
+        }, 2000);
+      }
+
+      // Add click handlers to color swatches
+      document.querySelectorAll(".color-swatch").forEach((swatch) => {
+        swatch.addEventListener("click", () => {
+          const tokenName = swatch.dataset.token;
+          copyToClipboard(tokenName);
+        });
+      });
+
+      // Add click handlers to semantic examples
+      document.querySelectorAll(".semantic-example").forEach((example) => {
+        example.addEventListener("click", () => {
+          const tokenName = example.dataset.token;
+          copyToClipboard(tokenName);
+        });
+      });
+    </script>
+  </body>
+</html>
